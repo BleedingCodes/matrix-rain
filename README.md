@@ -43,17 +43,17 @@ make
 sudo cp xwinwrap /usr/local/bin/
 ```
 
-**2. Install Python dependencies**
-
-```bash
-pip install pygame python-xlib
-```
-
-**3. Clone this repo**
+**2. Clone this repo**
 
 ```bash
 git clone https://github.com/BleedingCodes/matrix-rain.git
 cd matrix-rain
+```
+
+**3. Install Python dependencies**
+
+```bash
+pip install -r requirements.txt
 ```
 
 ---
@@ -61,6 +61,8 @@ cd matrix-rain
 ## Usage
 
 ### Run as live wallpaper
+
+Replace `/path/to/matrix_rain.py` with the actual path to the script (e.g. `$(pwd)/matrix_rain.py` if you're in the repo directory).
 
 ```bash
 xwinwrap -fs -fdt -ni -b -nf -ov -s -- python3 /path/to/matrix_rain.py %WID
@@ -124,8 +126,12 @@ After=graphical-session.target
 
 [Service]
 Type=simple
+# Change :0 to match your actual display number if needed (check with: echo $DISPLAY)
 Environment=DISPLAY=:0
-ExecStart=xwinwrap -fs -fdt -ni -b -nf -ov -s -- python3 /path/to/matrix_rain.py %WID --fps 15 --density 0.7
+# Replace /path/to/matrix_rain.py with the absolute path to the script on your system
+# Example: /home/youruser/matrix-rain/matrix_rain.py
+# Note: use %%WID (double percent) — systemd expands single % as a unit specifier
+ExecStart=xwinwrap -fs -fdt -ni -b -nf -ov -s -- python3 /path/to/matrix_rain.py %%WID --fps 15 --density 0.7
 Restart=on-failure
 RestartSec=5
 
