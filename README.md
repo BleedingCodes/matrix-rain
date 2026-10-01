@@ -169,7 +169,7 @@ systemctl --user stop matrix-rain
 
 ## Built by MainbyteLabs
 
-Python tooling for electronics labs, hardware shops, and Linux-based tech teams.
+Python tooling for electronics labs, hardware shops, and Linux-based tech teams — developed with AI, directed and tested by a working electronics technician.
 
 [MainbyteLabs](https://github.com/MR-MainbyteLabs) ·
 [LinkedIn](https://linkedin.com/in/michael-rivera-c0ding) ·
